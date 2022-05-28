@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class SymptomFileMaker implements ISymptomFileMaker {
     // field
-    private String filepath;
+    private final String filepath;
 
     // constructor
     public SymptomFileMaker(String filepath) {

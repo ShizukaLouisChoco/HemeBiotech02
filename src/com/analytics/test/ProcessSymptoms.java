@@ -1,15 +1,13 @@
 package com.analytics.test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.TreeMap;
 
 public class ProcessSymptoms implements IProcessSymptoms {
 
-    public Map<String, Integer> listToMap(List<String> SymptomList) {
-        Map<String, Integer> map = new HashMap<>();
+    public Map<String, Integer> listToSortedMap(List<String> SymptomList) {
+        Map<String, Integer> map = new TreeMap<>();
         for (String line : SymptomList) {
             Integer value = map.getOrDefault(line, 0);
             Integer newValue = value + 1;
@@ -18,4 +16,5 @@ public class ProcessSymptoms implements IProcessSymptoms {
         return map;
 
     }
+
 }

@@ -4,5 +4,6 @@ import java.util.Map;
 
 public interface ISymptomFileMaker {
 
-    public void symptomFileMaker(Map<String, Integer> symptomData);
-}
+    void symptomFileMaker(Map<String, Integer> symptomData);
+
+    }
