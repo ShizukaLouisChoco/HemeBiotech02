@@ -15,7 +15,7 @@ public class MakeSymptomFile implements IMakeSymptomFile {
         this.filepath = filepath;
     }
 
-    public void makeSymptomFile(Map<String, Integer> symptomData) {
+    public void makeSymptomFileFromMap(Map<String, Integer> symptomData) {
 
         try {
             FileWriter writer = new FileWriter(filepath);

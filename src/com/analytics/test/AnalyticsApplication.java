@@ -11,9 +11,9 @@ public class    AnalyticsApplication {
         ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(filepath);
         List<String> symptomList = read.GetSymptoms();
         ProcessSymptoms processSymptoms = new ProcessSymptoms();
-        Map<String, Integer> symptomMap = processSymptoms.listToSortedMap(symptomList) ;
+        Map<String, Integer> symptomMap = processSymptoms.makelistToSortedMap(symptomList) ;
         MakeSymptomFile makeSymptomFile = new MakeSymptomFile(writeFilepath);
-        makeSymptomFile.makeSymptomFile(symptomMap);
+        makeSymptomFile.makeSymptomFileFromMap(symptomMap);
 
 
     }
