@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class ProcessSymptoms implements IProcessSymptoms {
 
-    public Map<String, Integer> makelistToSortedMap(List<String> SymptomList) {
+    public Map<String, Integer> makeSortedMapFromList(List<String> SymptomList) {
         Map<String, Integer> map = new TreeMap<>();
         for (String line : SymptomList) {
             Integer value = map.getOrDefault(line, 0);

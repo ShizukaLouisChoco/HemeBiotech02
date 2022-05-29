@@ -6,12 +6,12 @@ import java.util.Map;
 public class    AnalyticsApplication {
     public static void main(String[] args) {
 
-        String filepath = "ressource/symptoms.txt";
-        String writeFilepath ="ressource/output.txt";
+        String filepath = "resource/symptoms.txt";
+        String writeFilepath ="resource/output.txt";
         IReadSymptomDataFromFile myReader = new ReadSymptomDataFromFile(filepath);
         List<String> mySymptomList = myReader.GetSymptoms();
         IProcessSymptoms myProcessSymptoms = new ProcessSymptoms();
-        Map<String, Integer> mySymptomMap = myProcessSymptoms.makelistToSortedMap(mySymptomList) ;
+        Map<String, Integer> mySymptomMap = myProcessSymptoms.makeSortedMapFromList(mySymptomList) ;
         IMakeSymptomFile myFileMaker = new MakeSymptomFile(writeFilepath);
         myFileMaker.makeSymptomFileFromMap(mySymptomMap);
 
