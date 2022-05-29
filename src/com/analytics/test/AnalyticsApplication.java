@@ -8,12 +8,12 @@ public class    AnalyticsApplication {
 
         String filepath = "ressource/symptoms.txt";
         String writeFilepath ="ressource/output.txt";
-        ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(filepath);
-        List<String> symptomList = read.GetSymptoms();
-        ProcessSymptoms processSymptoms = new ProcessSymptoms();
-        Map<String, Integer> symptomMap = processSymptoms.makelistToSortedMap(symptomList) ;
-        MakeSymptomFile makeSymptomFile = new MakeSymptomFile(writeFilepath);
-        makeSymptomFile.makeSymptomFileFromMap(symptomMap);
+        ReadSymptomDataFromFile myReader = new ReadSymptomDataFromFile(filepath);
+        List<String> mySymptomList = myReader.GetSymptoms();
+        ProcessSymptoms myProcessSymptoms = new ProcessSymptoms();
+        Map<String, Integer> mySymptomMap = myProcessSymptoms.makelistToSortedMap(mySymptomList) ;
+        MakeSymptomFile myFileMaker = new MakeSymptomFile(writeFilepath);
+        myFileMaker.makeSymptomFileFromMap(mySymptomMap);
 
 
     }
