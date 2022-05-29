@@ -3,7 +3,7 @@ package com.analytics.test;
 import java.util.List;
 import java.util.Map;
 
-public class AnalyticsApplication {
+public class    AnalyticsApplication {
     public static void main(String[] args) {
 
         String filepath = "ressource/symptoms.txt";
@@ -12,8 +12,8 @@ public class AnalyticsApplication {
         List<String> symptomList = read.GetSymptoms();
         ProcessSymptoms processSymptoms = new ProcessSymptoms();
         Map<String, Integer> symptomMap = processSymptoms.listToSortedMap(symptomList) ;
-        SymptomFileMaker makeSymptomFile = new SymptomFileMaker(writeFilepath);
-        makeSymptomFile.symptomFileMaker(symptomMap);
+        MakeSymptomFile makeSymptomFile = new MakeSymptomFile(writeFilepath);
+        makeSymptomFile.makeSymptomFile(symptomMap);
 
 
     }
