@@ -11,14 +11,16 @@ import java.util.List;
  * @author Alex
  * @version 1.0.0
  */
-public class ReadSymptomDataFromFile implements IReadSymptomDataFromFile {
+public class ReadSymptomDataFromFile implements ReadSymptomData {
     private final String filepath;
 
     /**
      * ReadSymptomDataFromFile Constructor
      * @param filepath a full or partial path to file with symptom strings in it, one per line
      */
-    public ReadSymptomDataFromFile (String filepath) {
+    public ReadSymptomDataFromFile (String filepath) throws IOException {
+        if (filepath == null)
+            throw new IOException("The filepath couldn't be null");
         this.filepath = filepath;
     }
 
@@ -27,22 +29,20 @@ public class ReadSymptomDataFromFile implements IReadSymptomDataFromFile {
      * @return String data in List type from the .txt format
      */
     @Override
-    public List<String> GetSymptoms(){
+    public List<String> getSymptoms(){
         ArrayList<String> result = new ArrayList<>();
 
-        if (filepath != null) {
-            try {
-                BufferedReader reader = new BufferedReader (new FileReader(filepath));
-                String line = reader.readLine();
+        try {
+            BufferedReader reader = new BufferedReader (new FileReader(filepath));
+            String line = reader.readLine();
 
-                while (line != null) {
-                    result.add(line);
-                    line = reader.readLine();
-                }
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            while (line != null) {
+                result.add(line);
+                line = reader.readLine();
             }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return result;

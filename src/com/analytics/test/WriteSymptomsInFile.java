@@ -11,16 +11,17 @@ import java.util.Map;
  * @version 1.0.0
  */
 
-public class MakeSymptomFile implements IMakeSymptomFile {
+public class WriteSymptomsInFile implements WriteSymptoms {
     // field
     private final String filepath;
-
     /**
      * MakeSymptomFile constructor
      * @param filepath : filepath to generate new .txt file
      */
     // constructor
-    public MakeSymptomFile(String filepath) {
+    public WriteSymptomsInFile(String filepath) throws IOException {
+        if(filepath == null)
+            throw new IOException("The filepath cannot be null");
         this.filepath = filepath;
     }
 
@@ -28,13 +29,14 @@ public class MakeSymptomFile implements IMakeSymptomFile {
      * Data will be written like : Name of symptom = counts of symptom
      * @param symptomData: Map typed data with string data (Symptom name)in key and Integer data(Counts of symptoms) in value
      */
-    public void makeSymptomFileFromMap(Map<String, Integer> symptomData) {
-
+    public void writeSymptomFileFromMap(Map<String, Integer> symptomData) {
         try {
             FileWriter writer = new FileWriter(filepath);
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(writer));
             for (Map.Entry<String, Integer> entry : symptomData.entrySet()) {
-                printWriter.println(entry.getKey() + "=" + entry.getValue());
+                String line = entry.getKey() + "=" + entry.getValue();
+                printWriter.println(line);
+                System.out.println(line);
             }
             printWriter.close();
         } catch (IOException e) {
